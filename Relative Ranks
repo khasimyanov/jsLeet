@@ -12,7 +12,5 @@ var findRelativeRanks = function(score) {
   const scoreRanked = [...score].sort((a, b) => a <= b ? 1 : -1);
   const ranks = scoreRanked.map((el, ind) => 
   {return rank.hasOwnProperty(ind) ? rank[ind] : String(ind + 1)});
-  return score.map((el,ind) => {
-    return el = scoreRanked.indexOf(el);
-    }).map(x => ranks[x])
+  return score.map((el,ind) => scoreRanked.indexOf(el)).map(x => ranks[x])
 };
