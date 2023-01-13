@@ -14,3 +14,18 @@ var findRelativeRanks = function(score) {
   {return rank.hasOwnProperty(ind) ? rank[ind] : String(ind + 1)});
   return score.map(el => scoreRanked.indexOf(el)).map(x => ranks[x])
 };
+
+
+// или так
+
+/**
+ * @param {number[]} score
+ * @return {string[]}
+ */
+var findRelativeRanks = function(score) {
+    const rank = ['Gold Medal','Silver Medal','Bronze Medal'];
+    const scoreRanked = [...score].sort((a, b) => a <= b ? 1 : -1);
+    const ranks = scoreRanked.map((el, ind) => 
+    {return rank[ind] ? rank[ind] : String(ind + 1)});
+    return score.map(el => scoreRanked.indexOf(el)).map(x => ranks[x])
+};
