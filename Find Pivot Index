@@ -1,0 +1,11 @@
+/https://leetcode.com/problems/find-pivot-index/description/?envType=study-plan&id=level-1
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function(nums) {
+    let outer = nums.map((el, ind) => 
+    { return nums.slice(0, ind).reduce((acc, cur) => acc + cur, 0) === nums.slice(ind + 1).reduce((acc, cur) => acc + cur, 0) ? ind : 'x' })
+    .filter(x => x !== 'x');
+  return outer.length === 0 ? -1 : outer[0]
+};
