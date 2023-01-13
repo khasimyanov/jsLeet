@@ -10,7 +10,7 @@ var findRelativeRanks = function(score) {
     2: 'Bronze Medal'
   };
   const scoreRanked = [...score].sort((a, b) => a <= b ? 1 : -1);
-  const ranks = scoreRanked.map((el, ind, arr) => 
+  const ranks = scoreRanked.map((el, ind) => 
   {return rank.hasOwnProperty(ind) ? rank[ind] : String(ind + 1)});
   return score.map((el,ind) => {
     return el = scoreRanked.indexOf(el);
